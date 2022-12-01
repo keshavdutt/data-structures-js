@@ -22,31 +22,23 @@ function maxHeapCompare(a, b) {
   return 0;
 }
 
-let array = [1, 1, 1, 3, 2, 2, 4];
-let k = 2;
-// find the top k frequent number
+let array = [5, 6, 7, 8, 9];
+let k = 3;
+let x = 7;
+// find the k smallest number closest to x
+// k = 3, x = 7
 // output
 
-let minheap = buckets.Heap(Compare);
+let maxHeap = buckets.Heap(maxHeapCompare);
 
-let kd = new Map();
-
-array.forEach((value, index) => {
-  if (!kd[value]) {
-    kd[value] = 1;
-  } else {
-    kd[value] += 1;
-  }
-});
-
-for (let key in kd) {
-  let pair = [kd[key], key];
-  minheap.add(pair);
-  if (minheap.size() > k) {
-    minheap.removeRoot();
+for (let i = 0; i < array.length; i++) {
+  let pair = [Math.abs(x - array[i]), array[i]];
+  maxHeap.add(pair);
+  if (maxHeap.size() > k) {
+    maxHeap.removeRoot();
   }
 }
 
-while (minheap.size() > 0) {
-  console.log(minheap.removeRoot()[1]);
+while (maxHeap.size() > 0) {
+  console.log(maxHeap.removeRoot()[1]);
 }
