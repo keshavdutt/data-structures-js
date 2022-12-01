@@ -27,23 +27,23 @@ let array = [
 
 let size = array.length;
 
-// for (let i = 0; i < size; i++) {
-//   newheap.add(array[i]);
-//   if (newheap.size() > k) {
-//     newheap.removeRoot();
-//   }
-// }
-
 for (let i = 0; i < size; i++) {
   newheap.add(array[i]);
+  if (newheap.size() > k) {
+    newheap.removeRoot();
+  }
 }
 
-console.log(newheap.toArray());
+// for (let i = 0; i < size; i++) {
+//   newheap.add(array[i]);
+// }
 
 console.log(newheap.toArray());
-console.log(newheap.removeRoot());
-console.log(newheap.toArray());
-console.log(newheap.removeRoot());
-console.log(newheap.removeRoot());
-console.log(newheap.removeRoot());
-console.log(newheap.toArray());
+
+// console.log(newheap.toArray());
+// console.log(newheap.removeRoot());
+// console.log(newheap.toArray());
+// console.log(newheap.removeRoot());
+// console.log(newheap.removeRoot());
+// console.log(newheap.removeRoot());
+// console.log(newheap.toArray());
