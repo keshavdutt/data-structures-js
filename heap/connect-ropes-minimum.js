@@ -13,3 +13,36 @@
 let bucket = require('buckets-js');
 
 let array = [1, 2, 3, 4, 5];
+
+function minHeapCompare(a, b) {
+  if (a < b) {
+    return -1;
+  }
+  if (a > b) {
+    return 1;
+  }
+  // a must be equal to b
+  return 0;
+}
+
+let minHeap = bucket.Heap(minHeapCompare);
+
+for (let i = 0; i < array.length; i++) {
+  minHeap.add(array[i]);
+}
+let cost = 0;
+let length = 0;
+while (minHeap.size() > 1) {
+  let first = minHeap.removeRoot();
+  let second = minHeap.removeRoot();
+  console.log(first, second, first + second);
+
+  let length = first + second;
+  cost = cost + length;
+  minHeap.add(length);
+  console.log('This is the minheap', minHeap.toArray());
+}
+
+console.log('this is the cost', cost);
+
+console.log(minHeap.toArray());
